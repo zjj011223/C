@@ -1,0 +1,457 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+////用函数判断是否是闰年
+//int IsLeapYear(int year)
+//{
+//	
+//	if ((year % 4 == 0) & (year % 100 != 0) || (year % 400 == 0))
+//		return 1;
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	int year,m;
+//	printf("please input Year:\n");
+//	scanf("%d", &year);
+//	m=IsLeapYear(year);
+//	if (m == 1)
+//		printf("The year is leapyear.\n");
+//	else
+//		printf("The year not is leapyear.\n");
+//	return 0;
+//}
+
+////用函数求圆柱的体积
+//double Cylinder(int r, int h)
+//{
+//	double V;
+//	V = (3.14) * r*r * h;
+//	return V;
+//}
+//int main()
+//{
+//	int r, h;
+//	double V;
+//	printf("Please input h:\n");
+//	scanf("%d", &h);
+//	printf("Please input r:\n");
+//	scanf("%d", &r);
+//	V = Cylinder(r, h);
+//	printf("V:%.2lf\n", V);
+//	return 0;
+//}
+
+////输入三个实型数据，求最大值比平均数大多少。定义和调用函数Max(a, b, c)用来求最大值，Avg(a, b, c)用来求平均数。
+//float Max(float a, float b, float c)
+//{
+//	float max = a > b ? a : b;
+//	max = max > c ? max : c;
+//	return max;
+//}
+//float Avg(float a, float b, float c)
+//{
+//	float sum = a + b + c;
+//	float avg = sum / 3.0;
+//	return avg;
+//}
+//int main()
+//{
+//	float a, b, c;
+//	float m, n,j; 
+//	printf("input:\n");
+//	scanf("%f %f %f", &a, &b, &c);
+//	m = Max(a, b, c);
+//	n = Avg(a, b, c);
+//	j = m - n;
+//	printf("Max>Avg:%.2f\n", j);
+//	return 0;
+//}
+
+//// 编写程序求下式的值：S=1*1!+2*2!+3*3!+……+n*n!(n<10)，先编写函数求解n!，再编写求解S的函数，求解S的函数中调用前一个函数。并在主函数中输入n，调用求解S的函数完成任务。
+//int Sua(int n)
+//{
+//	int i=0,a=1;
+//	for (i = 1; i <= n; i++)
+//	{
+//		a *= i;
+//	}
+//	return a;
+//}
+//int Sum(int n)
+//{
+//	int i=0,b=0,S=0;
+//	for (i =1; i <= n; i++)
+//	{
+//		b = i * Sua(i);
+//		S += b;
+//	}
+//	return S;
+//}
+//
+//int main()
+//{
+//	int n,sum;
+//	printf("number:\n");
+//	scanf("%d", &n);
+//	sum = Sum(n);
+//	printf("S=%d\n", sum);
+//	return 0;
+//}
+
+////在main函数中输入一批正整数（以零或负数作为输入结束标志），求其中素数的和。要求定义和调用函数prime(n)判断n是否为素数，当n为素数时函数返回值为1，否则返回值为0
+//int prime(int n)
+//{
+//	int j = 0;
+//	for (j = 2; j < n; j++)
+//	{
+//		if (n % j == 0)
+//			return 0;
+//	}
+//	return 1;
+//}
+//int main()
+//{
+//	int number=0,sum=0,m;
+//	do
+//	{
+//		printf("Please input number:\n");
+//		scanf("%d", &number);
+//		m=prime(number);
+//		if (m == 1)
+//		{
+//			sum += number;
+//		}
+//	} while (number > 0);
+//	printf("sum=%d\n", sum);
+//	return 0;
+//}
+// 
+////编写一个递归函数和一个非递归函数，分别实现求 1 + 2 + 3 + … + n。体会两者的区别
+//int Sum(int n)
+//{
+//	int sum = 0;
+//	if(n<=10)
+//		sum =n+ Sum(n + 1);
+//	return sum;
+//}
+//int Sum(int n)
+//{
+//	int sum=0;
+//	while (n<=10)
+//	{
+//		sum += n;
+//		n++;
+//	}
+//	return sum;
+//}
+//int main()
+//{
+//	int n = 1, m = 0;
+//	m = Sum(n);
+//	printf("sum=%d", m);
+//	return 0;
+//}
+
+////编写一个递归函数求斐波那契数列的第n项数值，并输出结果。n由键盘输入。
+//int Sum(int n)
+//{
+//	int sum=1;
+//	if (n == 1 || n == 2)
+//		return 1;
+//	else
+//		sum =Sum(n-2) + Sum(n - 1);
+//	return sum;
+//}
+//int main()
+//{
+//	int n,m;
+//	printf("please input:\n");
+//	scanf("%d",&n);
+//	m=Sum(n);
+//	printf("m=%d\n",m);
+//	return 0;
+//}
+
+////要求定义一个函数GetAvg求数组元素的平均值，并将平均值返回。
+// //在main函数中输入一批正整数，保存在数组中，然后调用GetAvg得到平均值并输出。
+//int GetAvg(int arr[], int n)
+//{
+//	int i,sum=0;
+//	
+//	for (i = 0; i < n; i++)
+//	{
+//		sum += arr[i];
+//	}
+//	return sum/n;
+//}
+//int main()
+//{
+//	int i, n;
+//	int arr[10], avg;
+//	printf("input number:\n");
+//	for (i = 0; i < 10;i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	n = sizeof(arr) / sizeof(arr[0]);
+//	avg = GetAvg(arr, n);
+//	printf("%d\n", avg);
+//	return 0;
+//}
+
+////输入三个整数，按由小到大的顺序输出。
+////（1）通过scanf语句输入三个数据 （2）采用函数调用的方式，定义函数的功能为互换两数的位置 （3）实现过程采用指针处理
+//void Swap(int* p1,int* p2)
+//{  
+//	int tmp = *p1;
+//	if ( tmp> *p2)
+//	{
+//		*p1 = *p2;
+//		*p2 = tmp;
+//	}
+//}
+//int main()
+//{
+//	int a,b,c;
+//	printf("input number:\n");
+//	scanf("%d %d %d", &a, &b, &c);
+//	int* p1 = &a;
+//	int* p2 = &b;
+//	int* p3 = &c;
+//	Swap(p1,p2);
+//	Swap(p1, p3);
+//	Swap(p2, p3);
+//	printf("input:%d %d %d\n", a, b, c);
+//	return 0;
+//}
+//
+////任意输入10个数，求其平均数。
+////要求：
+////利用指针，自定义input函数实现10个数的输入。
+////利用指针，自定义getAvg函数实现对这10个数的访问，求平均值，并回传。
+////在main函数中定义包含10个元素的数组，调用input和getAvg这两个函数分别实现输入与求平均值，最后输出平均值，保留两位小数。
+//float getAvg(int* p)
+//{
+//	int i = 0;
+//	float sum = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		sum +=*(p+i);
+//	}
+//	return sum / i;
+//}
+//int input(int* p)
+//{
+//	int i = 0;
+//	printf("input number:\n");
+//	for (i = 0; i < 3; i++)
+//
+//		scanf("%d", p++);
+//		return (p+i);
+//}
+//int main()
+//{
+//	int n;
+//	int arr[3] = {0};
+//	int* p;
+//	p = arr;
+//	n = input(p);
+//	float avg = getAvg(p);
+//	printf("%.2f\n", avg);
+//	
+//	return 0;
+//}
+
+////编写排序函数void selectSort(int* array, int n)，它的功能是利用 选择法 实现数组元素从大到小的排序；void bubbleSort（int* array, int n），它的功能是利用 冒泡法实现数组元素从小到大的排序。
+////在main函数中定义数组（长度自定），用scanf进行数组的初始化，然后调用selectSort函数进行从大到小排序，再使用bubbleSort函数重新进行从小到大的排序。最后将排好序的数组打印输出。
+//
+//void selectSort(int* arr, int n)
+//{
+//	int i, j,tmp;
+//	for (i = 0; i < n-1; i++)
+//	{
+//		for (j = i + 1; j <n; j++)
+//		{
+//
+//			if (arr[i]<arr[j])
+//			{
+//				tmp = arr[i];
+//				arr[i] = arr[j];
+//				arr[j] =tmp;
+//			}
+//		}
+//	}
+//}
+//void bubbleSort(int* arr, int n)
+//{
+//	int i, j;
+//	for (i = 0; i < n - 1; i++)
+//	{
+//		for (j = 0; j < n - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	int i,n;
+//	int arr[] = { 3,5,1,7,2,1,9,0,4,6 };
+//	n = sizeof(arr) / sizeof(arr[0]);
+//	printf("请输入数据:\n");
+//	for (i = 0; i < n; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//	selectSort(arr, n);
+//	printf("选择法从大到小排序结果为：\n");
+//	for (i = 0; i < n; i++)
+//		printf("%d ", arr[i]);
+//	printf("\n");
+//	printf("冒泡法从小到大排序结果为：\n");
+//	bubbleSort(arr,n);
+//	for (i = 0; i < n; i++)
+//		printf("%d ", arr[i]);
+//	return 0;
+//}
+
+////输入某班10个学生的姓名、数学成绩、英语成绩和C 语言成绩，计算每位学生的平均分，然后输出平均分最高的学生姓名和三门课的成绩。
+//#define N 10
+//struct student
+//{
+//	char name[20];
+//	int Match;
+//	int Enlish;
+//	int C;
+//	int score;
+//}stu;
+//int main()
+//{
+//	struct student arr[N];
+//	struct student tmp;
+//	int i,j;
+//	for (i = 0; i < N; i++)
+//	{
+//		printf("输入姓名，数学成绩，英语成绩，C语言成绩:\n");
+//		scanf("%s%d%d%d", &arr[i].name, &arr[i].Match, &arr[i].Enlish, &arr[i].C);
+//		arr[i].score = (arr[i].Match + arr[i].Enlish + arr[i].C) / 3;
+//	}
+//	for (i = 0; i < N - 1; i++)
+//	{
+//		for (j = i + 1; j < N; j++)
+//		{
+//			if (arr[j].score > arr[i].score)
+//			{
+//				tmp = arr[j];
+//				arr[j]= arr[i];
+//				arr[i]= tmp;
+//			}
+//		}
+//	}
+//	printf("平均分最高的学生为:%s\n Match:%d English:%d C:%dn", arr[0].name, arr[0].Match, arr[0].Enlish, arr[0].C);
+//	return 0;
+//}
+
+////在磁盘文件 A 和 B 中，各存放一行字母，今要求把这两个文件中的信息合并，输出到一个新文件 C 中。
+////注意：编写好代码之后需自行在程序路径下建立A与B两个文件，各输入一行至几行内容。
+//#include<stdlib.h>
+//int main()
+//{
+//	FILE* fp1, *fp2, *fp3;
+//	char ch1=1, ch2=1, ch3=1;
+//	char ch, sh;
+//	if ((fp1 = fopen("C:\\Users\\周俊杰\\Desktop\\A.txt", "r")) == NULL)
+//	{
+//		printf("\nCannot open file!");
+//		exit(0);
+//	}
+//	if ((fp2 = fopen("C:\\Users\\周俊杰\\Desktop\\B.txt", "r")) == NULL)
+//	{
+//		printf("\nCannot open file!");
+//		exit(0);
+//	}
+//	while (ch1 !=EOF)
+//	{
+//		ch =fgetc(fp1);
+//	}
+//	fclose(fp1);
+//	while (ch2 != EOF)
+//	{
+//		sh = fgetc(fp2);
+//	}
+//	fclose(fp2);
+//	if ((fp3 = fopen("C:\\Users\\周俊杰\\Desktop\\C.txt", "w")) == NULL)
+//	{
+//		printf("\nCannot open file!");
+//		exit(0);
+//	}
+//	
+//	while (ch3!= EOF)
+//	{
+//		putc(ch, fp3);
+//		putc(sh, fp3);
+//	}
+//
+//	fclose(fp3);
+//	
+//	return 0;
+//}
+
+//#include <stdlib.h>
+//int main()
+//{
+//    FILE* fp1,*fp2,*fp3;
+//    int i, j=0, n, ni;
+//    char c[160], t, ch;
+//    if ((fp1 = fopen("C:\\Users\\周俊杰\\Desktop\\A.txt", "r")) == NULL)
+//    {
+//        printf("file A cannot be opened\n");
+//        exit(0);
+//    }
+//    printf("\n A contents are : \n");
+//    for (i = 0; (ch = fgetc(fp1)) != EOF; i++)
+//    {
+//        c[i] = ch;
+//        putchar(c[i]);
+//    }
+//    fclose(fp1);
+//    ni = i;
+//    if ((fp2 = fopen("C:\\Users\\周俊杰\\Desktop\\B.txt", "r")) == NULL)
+//    {
+//        printf("file B cannot be opened \n");
+//        exit(0);
+//    }
+//    printf("\n B contents are : \n");
+//    for (i = 0; (ch = fgetc(fp2) != EOF); i++)
+//    {
+//        c[i] = ch;
+//        putchar(c[j]);
+//    }
+//    fclose(fp2);
+//    n = i;
+//    for (i = 0; i < n; i++)
+//        for (j = i + 1; j < n; j++)
+//            if (c[i] > c[j])
+//            {
+//                t = c[i];
+//                c[i] = c[j];
+//                c[j] = t;
+//            }
+//    printf(" \n C file is :\n");
+//    fp3 = fopen("C:\\Users\\周俊杰\\Desktop\\C.txt", "w");
+//    for (i = 0; i < n; i++)
+//    {
+//        putc(c[i], fp3);
+//        putchar(c[i]);
+//    }
+//    fclose(fp3);
+//    return 0;
+//}
+//
